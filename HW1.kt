@@ -25,10 +25,6 @@ fun main() {
     val fileName  = "weather_stations.csv"
     var line : String
     var value : Double
-    var sum : Double = 0.0
-    var max : Double = -1000.0
-    var min : Double = 1000.0
-    var count : Int = 0
 
     var locations : MutableMap<String, Stat> = mutableMapOf()
     var stat = Stat()
