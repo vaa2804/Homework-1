@@ -27,7 +27,7 @@ fun main() {
     var value : Double
 
     val locations : MutableMap<String, Stat> = mutableMapOf()
-    var stat = Stat()
+    var stat : Stat
 
     for (line in File(fileName).readLines()) {
         if (line[0] == '#')
