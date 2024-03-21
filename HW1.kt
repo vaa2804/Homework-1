@@ -23,7 +23,6 @@ data class Stat (var count : Int = 0, var min : Double = 0.0, var max : Double =
 
 fun main() {
     val fileName  = "weather_stations.csv"
-
     val locations : MutableMap<String, Stat> = mutableMapOf()
     var stat : Stat
 
@@ -40,20 +39,17 @@ fun main() {
     var roundMin : Double
     var roundMax : Double
     var roundMean : Double
-    var bFirst = 1
-    print("{ ")
+    var subList = mutableListOf<String> ()
     for (entry in sortedLoc) {
-        if (bFirst != 1) print(",")
-        bFirst = 0
         val line = entry.key
         stat = entry.value
         roundMin = (10.0 *stat.min).roundToInt()/10.0
         roundMax = (10.0 *stat.max).roundToInt()/10.0
         roundMean = (10.0 *stat.sum/stat.count).roundToInt()/10.0
-        print(" $line  $roundMin/$roundMean/$roundMax")
-
+        val subString : String = "$line  $roundMin/$roundMean/$roundMax"
+        subList.addLast(subString)
     }
-    print("}")
+    print (subList.joinToString(separator = ", ", prefix = "{ ",postfix = " }"))
 }
 
 
